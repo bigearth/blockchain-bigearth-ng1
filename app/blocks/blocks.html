@@ -1,0 +1,153 @@
+<div>
+  <div className='hero'>
+    <section className='container'>
+      <section className='row m-b-md'>
+        <div className='col-sm-12'>
+          <div>
+            <h2><span className='glyphicon glyphicon-th-large' aria-hidden='true'></span> Bitcoin <strong>Block</strong></h2>
+            <ul className='breadcrumb'>
+              <li><a ng-href="/#!/">Home</a></li>
+              <li className='active'>Block {{nb}}</li>
+            </ul>
+            <section className='panel panel-default'>
+              <div className='table-responsive'>
+                <table className='table table-striped'>
+                  <tbody>
+                    <tr>
+                      <th><span className='glyphicon glyphicon-equalizer' aria-hidden='true'></span> Height</th>
+                      <td>{{nb}}</td>
+                    </tr>
+                    <tr>
+                      <th><span className='glyphicon glyphicon-calendar' aria-hidden='true'></span> Created</th>
+                      <td>{{time_utc}}</td>
+                    </tr>
+                    <tr>
+                      <th className='btc'><span className='glyphicon glyphicon-bitcoin' aria-hidden='true'></span> Trades Sum</th>
+                      <td>{{vout_sum}}</td>
+                    </tr>
+                    <tr>
+                      <th><span className='glyphicon glyphicon-transfer' aria-hidden='true'></span> Transactions</th>
+                      <td>{{nb_txs}}</td>
+                    </tr>
+                    <tr>
+                      <th><span className='glyphicon glyphicon-link' aria-hidden='true'></span> Difficulty</th>
+                      <td>{{difficulty}}</td>
+                    </tr>
+                    <tr>
+                      <th className='btc'><span className='glyphicon glyphicon-bitcoin' aria-hidden='true'></span> Fee</th>
+                      <td>{{fee}}</td>
+                    </tr>
+                    <tr>
+                      <th><span className='glyphicon glyphicon-random' aria-hidden='true'></span> Hash</th>
+                      <td>{{hash}}</td>
+                    </tr>
+                    <tr>
+                      <th><span className='glyphicon glyphicon-align-justify' aria-hidden='true'></span> Version</th>
+                      <td>{{version}}</td>
+                    </tr>
+                    <tr>
+                      <th><span className='glyphicon glyphicon-equalizer' aria-hidden='true'></span> Confirmations</th>
+                      <td>{{confirmations}}</td>
+                    </tr>
+                    <tr>
+                      <th><span className='glyphicon glyphicon-tree-conifer' aria-hidden='true'></span> Merkle Root</th>
+                      <td>{{merkleroot}}</td>
+                    </tr>
+                    <tr>
+                      <th><span className='glyphicon glyphicon-menu-right' aria-hidden='true'></span> Next Block Hash</th>
+                      <td><Link to={`/blocks/${{next_block_hash}}`}}>{{next_block_hash}}</Link></td>
+                    </tr>
+                    <tr>
+                      <th><span className='glyphicon glyphicon-menu-left' aria-hidden='true'></span> Prev Block Hash</th>
+                      <td><Link to={`/blocks/${{next_block_hash}}`}}>{{prev_block_hash}}</Link></td>
+                    </tr>
+                    <tr>
+                      <th><span className='glyphicon glyphicon-scale' aria-hidden='true'></span> Size</th>
+                      <td>{{size}}</td>
+                    </tr>
+                    <tr>
+                      <th><span className='glyphicon glyphicon-remove' aria-hidden='true'></span> Days Destroyed</th>
+                      <td>{{days_destroyed}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </section>
+  </div>
+  <div className='sub'>
+    <section className='container'>
+      <section className="row m-b-md">
+        <div className="col-sm-12">
+          <h3><span className="glyphicon glyphicon-transfer" aria-hidden="true"></span> Transactions (for <strong>Block</strong> {{nb}})</h3>
+          <div ng-controller="BlocksCtrl as blocksController">
+            <div ng-repeat="tx in blocksController.txs" className="panel panel-default">
+              <div className="panel-heading">
+                <h3 className="panel-title">
+                  <span className="glyphicon glyphicon-transfer" aria-hidden="true"></span> 
+                  <Link to={`/transactions/${{tx.tx}`}>{{tx.tx}}</Link>
+                </h3>
+              </div>
+              <div className="panel-body">
+                <section className="row m-b-md">
+                  <div className="col-sm-6">
+                    <h4>Input Address(es)</h4>
+                    <section className="panel panel-default">
+                      <div className="table-responsive">
+                        <BlocksTransactionVin data={{tx.trade.vins} />
+                        <table className="table table-striped">
+                          <tbody>
+                            <tr ng-repeat="vin in blocksController.vins">
+                              <td><span className='glyphicon glyphicon-qrcode' aria-hidden='true'></span> <a ng-href="/#!/addresses/{{vin.address}}">{{vin.address}}</a></td>
+                              <td className='text-danger'>
+                                <span className='btc' title='{item.amount}'><span className='glyphicon glyphicon-bitcoin' aria-hidden='true'></span> {{vin.amount}}</span>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                  <div className="col-sm-6">
+                    <h4>Output Address(es)</h4>
+                    <section className="panel panel-default">
+                      <div className="table-responsive">
+                        <BlocksTransactionVin data={{tx.trade.vouts}} />
+                      </div>
+                    </section>
+                  </div>
+                </section>
+              </div>
+              <div className="panel-footer">
+                <section className="row m-b-md">
+                  <div className="col-sm-6">
+                    <p><span className='glyphicon glyphicon-remove' aria-hidden='true'></span> Days Destroyed: {{tx.days_destroyed}}</p>
+                  </div>
+                  <div className="col-sm-6">
+                    <p>
+                      <span className='btc'>
+                        <span className='glyphicon glyphicon-bitcoin' aria-hidden='true'></span>
+                        Fee: 
+                        <span title='{{tx.fee}'>{{tx.fee}}</span>
+                      </span>
+                    </p>
+                    <p className='currency'>
+                      <span className='btc'>
+                        <span className='glyphicon glyphicon-bitcoin' aria-hidden='true'></span>
+                        Transaction Sum: 
+                        <span title='{{tx.amount}'>{{tx.vout_sum}}</span>
+                      </span>
+                    </p>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </div>
+</div>

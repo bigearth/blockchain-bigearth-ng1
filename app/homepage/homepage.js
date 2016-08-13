@@ -9,8 +9,7 @@ angular.module('blockchain.homepage', ['ngRoute'])
   });
 }])
 
-.controller('HomepageCtrl', ['$scope', '$http', '$log', function($scope, $http, $log) {
-  $scope.$log = $log;
+.controller('HomepageCtrl', ['$scope', '$http', function($scope, $http) {
   var homepageController = this;
   homepageController.blocks = [];
   $http({
@@ -45,7 +44,6 @@ angular.module('blockchain.homepage', ['ngRoute'])
         fee: block.fee,
         size: block.size,
         days_destroyed: block.days_destroyed
-        
       });
     });
   }, function errorCallback(response) {

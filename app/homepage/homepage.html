@@ -37,7 +37,7 @@
                 </thead>
                 <tbody ng-controller="HomepageCtrl as homepageController">
                   <tr ng-repeat="block in homepageController.blocks">
-                    <td><Link to={`/blocks/${item.nb}`}>{{block.nb}}</Link></td>
+                    <td><a ng-href="/#!/blocks/{{block.nb}}">{{block.nb}}</a></td>
                     <td>{{block.time_utc}}</td>
                     <td>{{block.nb_txs}}</td>
                     <td>{{block.fee}}</td>
