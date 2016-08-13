@@ -13,6 +13,7 @@ angular.module('blockchain.blocks', ['ngRoute'])
   var blocksController = this;
   blocksController.txs = [];
   blocksController.vins = [];
+  blocksController.vouts = [];
   $http({
     method: 'GET',
     url: 'http://btc.blockr.io/api/v1/block/info/' + $routeParams.block
@@ -42,18 +43,24 @@ angular.module('blockchain.blocks', ['ngRoute'])
     url: 'http://btc.blockr.io/api/v1/block/txs/' + $routeParams.block
   }).then(function successCallback(response) {
     var data = response.data.data;
-    console.log(data);
     angular.forEach(data.txs, function(tx) {
       blocksController.txs.push({
         tx: tx.tx,
         fee: tx.fee,
         days_destroyed: tx.days_destroyed
       });
+      
       angular.forEach(tx.trade.vins, function(vin) {
-        console.log(vin);
         blocksController.vins.push({
           address: vin.address,
           amount: vin.amount
+        });
+      });
+      
+      angular.forEach(tx.trade.vouts, function(vout) {
+        blocksController.vouts.push({
+          address: vout.address,
+          amount: vout.amount
         });
       });
     });

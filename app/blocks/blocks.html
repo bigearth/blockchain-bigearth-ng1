@@ -97,13 +97,12 @@
                     <h4>Input Address(es)</h4>
                     <section className="panel panel-default">
                       <div className="table-responsive">
-                        <BlocksTransactionVin data={{tx.trade.vins} />
                         <table className="table table-striped">
                           <tbody>
                             <tr ng-repeat="vin in blocksController.vins">
                               <td><span className='glyphicon glyphicon-qrcode' aria-hidden='true'></span> <a ng-href="/#!/addresses/{{vin.address}}">{{vin.address}}</a></td>
                               <td className='text-danger'>
-                                <span className='btc' title='{item.amount}'><span className='glyphicon glyphicon-bitcoin' aria-hidden='true'></span> {{vin.amount}}</span>
+                                <span className='btc' title='{{vin.amount}}'><span className='glyphicon glyphicon-bitcoin' aria-hidden='true'></span> {{vin.amount}}</span>
                               </td>
                             </tr>
                           </tbody>
@@ -115,7 +114,16 @@
                     <h4>Output Address(es)</h4>
                     <section className="panel panel-default">
                       <div className="table-responsive">
-                        <BlocksTransactionVin data={{tx.trade.vouts}} />
+                        <table className="table table-striped">
+                          <tbody>
+                            <tr ng-repeat="vout in blocksController.vouts">
+                              <td><span className='glyphicon glyphicon-qrcode' aria-hidden='true'></span> <a ng-href="/#!/addresses/{{vout.address}}">{{vout.address}}</a></td>
+                              <td className='text-danger'>
+                                <span className='btc' title='{{vout.amount}}'><span className='glyphicon glyphicon-bitcoin' aria-hidden='true'></span> {{vout.amount}}</span>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
