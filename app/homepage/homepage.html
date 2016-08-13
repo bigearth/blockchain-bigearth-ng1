@@ -19,3 +19,34 @@
     </section>
   </section>
 </div>
+<div className='sub'>
+  <div className='container'>
+    <h3><span className="glyphicon glyphicon-th" aria-hidden="true"></span> Last 20 <strong>Bitcoin</strong> Blocks</h3>
+    <section className="panel panel-default">
+        <div className="table-responsive">
+            <table className="table table-striped">
+                <thead>
+                    <tr>
+                        <th><span className="glyphicon glyphicon-equalizer" aria-hidden="true"></span> Height</th>
+                        <th><span className="glyphicon glyphicon-object-align-vertical" aria-hidden="true"></span> Created</th>
+                        <th><span className="glyphicon glyphicon-transfer" aria-hidden="true"></span> Transactions</th>
+                        <th> <span className="btc glyphicon glyphicon-bitcoin" aria-hidden="true"></span> Fee </th>
+                        <th><span className="glyphicon glyphicon-scale" aria-hidden="true"></span> Size</th>
+                        <th><span className="glyphicon glyphicon-remove" aria-hidden="true"></span> Days Destroyed</th>
+                    </tr>
+                </thead>
+                <tbody ng-controller="HomepageCtrl as homepageController">
+                  <tr ng-repeat="block in homepageController.blocks">
+                    <td><Link to={`/blocks/${item.nb}`}>{{block.nb}}</Link></td>
+                    <td>{{block.time_utc}}</td>
+                    <td>{{block.nb_txs}}</td>
+                    <td>{{block.fee}}</td>
+                    <td>{{block.size}}</td>
+                    <td>{{block.days_destroyed}}</td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+  </div>
+</div>
