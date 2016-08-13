@@ -1,0 +1,160 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+  font-weight: 200;
+}
+
+body {
+  color: white;
+  background: #0F5288;
+  font-family: 'Roboto', helvetica;
+}
+
+.hero {
+  border-width: 0 0 2px 0px;
+  border-style: solid;
+  border-color: #03233B;
+}
+.hero h2 strong {
+  color: #03233B;
+}
+
+.sub {
+  background: #579dd8;
+}
+.sub h3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sub h3 strong {
+  color: #0F5288;
+}
+.sub h4 strong {
+  color: #0F5288;
+}
+
+ul li.list-group-item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+table {
+  color: #333;
+}
+table a {
+  text-decoration: underline;
+}
+
+.panel {
+  color: #333;
+}
+.panel .panel-heading h3.panel-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.label-as-badge {
+  border-radius: 1em;
+}
+
+.breadcrumb {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+footer {
+  background: #03233B;
+}
+footer a, footer a:visited, footer a:hover, footer a:active {
+  color: white;
+}
+
+input {
+  color: black;
+}
+
+pre#output {
+  white-space: pre-wrap;
+  /* CSS 3 */
+  white-space: -moz-pre-wrap;
+  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;
+  /* Opera 4-6 */
+  white-space: -o-pre-wrap;
+  /* Opera 7 */
+  word-wrap: break-word;
+  /* Internet Explorer 5.5+ */
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  margin: 100px auto;
+}
+
+.double-bounce1, .double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #333;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.double-bounce2 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-bounce {
+  0%, 100% {
+    -webkit-transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1);
+  }
+}
+@keyframes sk-bounce {
+  0%, 100% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
