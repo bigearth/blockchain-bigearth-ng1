@@ -1,0 +1,73 @@
+<div>
+  <div className="container">
+    <section className="row m-b-md">
+        <div className="col-sm-12">
+          <h2><span className='glyphicon glyphicon-qrcode' aria-hidden='true'></span> Bitcoin <strong>Address</strong></h2>
+          <ul className='breadcrumb'>
+            <li><a ng-href="/#!/">Home</a></li>
+            <li className='active'>Address {{address}}</li>
+          </ul>
+        </div>
+    </section>
+    <section className="row m-b-md">
+        <div className="col-sm-12">
+          <section className="panel panel-default">
+              <div className="table-responsive">
+                  <table className="table table-striped">
+                      <tbody>
+                          <tr>
+                              <td><span className='glyphicon glyphicon-qrcode' aria-hidden='true'></span> Address</td>
+                              <td>{{address}}</td>
+                          </tr>
+                          <tr>
+                              <td><span className='glyphicon glyphicon-bitcoin' aria-hidden='true'></span> Balance</td>
+                              <td>{{balance}}</td>
+                          </tr>
+                          <tr>
+                              <td><span className='glyphicon glyphicon-bitcoin' aria-hidden='true'></span> Received</td>
+                              <td>{{totalreceived}}</td>
+                          </tr>
+                          <tr>
+                              <td><span className='glyphicon glyphicon-transfer' aria-hidden='true'></span> Transactions</td>
+                              <td>{{nb_txs}}</td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </section>
+        </div>
+    </section>
+  </div>
+  <div className='sub'>
+    <div ng-controller="AddressesCtrl as addressesController" className='container'>
+      <section ng-repeat="tx in addressesController.txs" className="panel panel-default">
+        <div className="table-responsive">
+          <table className="table table-striped">
+            <tbody>
+              <tr>
+                <td><span className='glyphicon glyphicon-transfer' aria-hidden='true'></span> Transaction</td>
+                <td><a ng-href="/#!//transactions/{{tx.tx}}">{{tx.tx}}</a></td>
+              </tr>
+              <tr>
+                <td><span className='glyphicon glyphicon-calendar' aria-hidden='true'></span> Created</td>
+                <td>{{tx.time_utc}}</td>
+              </tr>
+              <tr>
+                <td>
+                  <span className='btc'>
+                    Amount
+                  </span>
+                </td>
+                <td><span className='btc' title='{{tx.amount}'>{{tx.amount}}</span></td>
+              </tr>
+              <tr>
+                <td><span className='glyphicon glyphicon-equalizer' aria-hidden='true'></span> Confirmations</td>
+                <td>{{tx.confirmations}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
