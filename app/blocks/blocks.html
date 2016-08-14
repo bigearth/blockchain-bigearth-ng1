@@ -99,7 +99,7 @@
                       <div class="table-responsive">
                         <table class="table table-striped">
                           <tbody>
-                            <tr ng-repeat="vin in blocksController.vins">
+                            <tr ng-repeat="vin in tx.vins">
                               <td><span class='glyphicon glyphicon-qrcode' aria-hidden='true'></span> <a ng-href="/#!/addresses/{{vin.address}}">{{vin.address}}</a></td>
                               <td class='text-danger'>
                                 <span class='btc' title='{{vin.amount}}'><span class='glyphicon glyphicon-bitcoin' aria-hidden='true'></span> {{vin.amount | number}}</span>
@@ -116,7 +116,7 @@
                       <div class="table-responsive">
                         <table class="table table-striped">
                           <tbody>
-                            <tr ng-repeat="vout in blocksController.vouts">
+                            <tr ng-repeat="vout in tx.vouts">
                               <td><span class='glyphicon glyphicon-qrcode' aria-hidden='true'></span> <a ng-href="/#!/addresses/{{vout.address}}">{{vout.address}}</a></td>
                               <td class='text-danger'>
                                 <span class='btc' title='{{vout.amount}}'><span class='glyphicon glyphicon-bitcoin' aria-hidden='true'></span> {{vout.amount | number}}</span>
