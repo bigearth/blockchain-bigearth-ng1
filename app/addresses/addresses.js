@@ -14,7 +14,7 @@ angular.module('blockchain.addresses', ['ngRoute'])
   addressesController.txs = [];
   $http({
     method: 'GET',
-    url: 'http://btc.blockr.io/api/v1/address/info/' + $routeParams.address
+    url: 'https://btc.blockr.io/api/v1/address/info/' + $routeParams.address
   }).then(function successCallback(response) {
     var data = response.data.data;
     $scope.address = data.address;
@@ -28,7 +28,7 @@ angular.module('blockchain.addresses', ['ngRoute'])
 
   $http({
     method: 'GET',
-    url: 'http://btc.blockr.io/api/v1/address/txs/' + $routeParams.address
+    url: 'https://btc.blockr.io/api/v1/address/txs/' + $routeParams.address
   }).then(function successCallback(response) {
     var data = response.data.data;
     angular.forEach(data.txs, function(tx) {

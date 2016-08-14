@@ -14,7 +14,7 @@ angular.module('blockchain.homepage', ['ngRoute'])
   homepageController.blocks = [];
   $http({
     method: 'GET',
-    url: 'http://btc.blockr.io/api/v1/coin/info'
+    url: 'https://btc.blockr.io/api/v1/coin/info'
   }).then(function successCallback(response) {
     var data = response.data.data;
     $scope.value = data.markets.coinbase.value;
@@ -33,7 +33,7 @@ angular.module('blockchain.homepage', ['ngRoute'])
   
   $http({
     method: 'GET',
-    url: 'http://btc.blockr.io/api/v1/block/info/416614,416613,416612,416611,416610,416609,416608,416607,416606,416605,416604,416603,416602,416601,416600,416599,416598,416597,416596,416595'
+    url: 'https://btc.blockr.io/api/v1/block/info/416614,416613,416612,416611,416610,416609,416608,416607,416606,416605,416604,416603,416602,416601,416600,416599,416598,416597,416596,416595'
   }).then(function successCallback(response) {
     var data = response.data.data;
     angular.forEach(data, function(block) {

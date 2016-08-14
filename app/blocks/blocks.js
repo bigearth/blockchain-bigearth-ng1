@@ -16,7 +16,7 @@ angular.module('blockchain.blocks', ['ngRoute'])
   blocksController.vouts = [];
   $http({
     method: 'GET',
-    url: 'http://btc.blockr.io/api/v1/block/info/' + $routeParams.block
+    url: 'https://btc.blockr.io/api/v1/block/info/' + $routeParams.block
   }).then(function successCallback(response) {
     var data = response.data.data;
     $scope.nb = data.nb;
@@ -40,7 +40,7 @@ angular.module('blockchain.blocks', ['ngRoute'])
 
   $http({
     method: 'GET',
-    url: 'http://btc.blockr.io/api/v1/block/txs/' + $routeParams.block
+    url: 'https://btc.blockr.io/api/v1/block/txs/' + $routeParams.block
   }).then(function successCallback(response) {
     var data = response.data.data;
     angular.forEach(data.txs, function(tx) {

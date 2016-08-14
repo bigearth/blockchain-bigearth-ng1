@@ -15,7 +15,7 @@ angular.module('blockchain.transactions', ['ngRoute'])
   transactionsController.vouts = [];
   $http({
     method: 'GET',
-    url: 'http://btc.blockr.io/api/v1/tx/info/' + $routeParams.transaction
+    url: 'https://btc.blockr.io/api/v1/tx/info/' + $routeParams.transaction
   }).then(function successCallback(response) {
     var data = response.data.data;
     $scope.block = data.block;
@@ -46,7 +46,7 @@ angular.module('blockchain.transactions', ['ngRoute'])
   // 
   // $http({
   //   method: 'GET',
-  //   url: 'http://btc.blockr.io/api/v1/address/txs/' + $routeParams.address
+  //   url: 'https://btc.blockr.io/api/v1/address/txs/' + $routeParams.address
   // }).then(function successCallback(response) {
   //   var data = response.data.data;
   //   angular.forEach(data.txs, function(tx) {
