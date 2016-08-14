@@ -45,26 +45,25 @@ angular.module('blockchain.blocks', ['ngRoute'])
   }).then(function successCallback(response) {
     var data = response.data.data;
     angular.forEach(data.txs, function(tx, index) {
-      // console.log(tx, index);
-    //   blocksController.txs.push({
-    //     tx: tx.tx,
-    //     fee: tx.fee,
-    //     days_destroyed: tx.days_destroyed
-    //   });
-    //   
-    //   angular.forEach(tx.trade.vins, function(vin) {
-    //     blocksController.vins.push({
-    //       address: vin.address,
-    //       amount: vin.amount
-    //     });
-    //   });
-    //   
-    //   angular.forEach(tx.trade.vouts, function(vout) {
-    //     blocksController.vouts.push({
-    //       address: vout.address,
-    //       amount: vout.amount
-    //     });
-    //   });
+      blocksController.txs.push({
+        tx: tx.tx,
+        fee: tx.fee,
+        days_destroyed: tx.days_destroyed
+      });
+      
+      angular.forEach(tx.trade.vins, function(vin) {
+        blocksController.vins.push({
+          address: vin.address,
+          amount: vin.amount
+        });
+      });
+      
+      angular.forEach(tx.trade.vouts, function(vout) {
+        blocksController.vouts.push({
+          address: vout.address,
+          amount: vout.amount
+        });
+      });
     });
   }, function errorCallback(response) {
     // called asynchronously if an error occurs
