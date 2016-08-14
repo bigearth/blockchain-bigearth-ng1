@@ -3,18 +3,18 @@
     <section class="row m-b-md">
       <div class="col-sm-4">
         <h2 class="m-b-xs"><span class="glyphicon glyphicon-bitcoin" aria-hidden="true"></span> Bitcoin <strong>Markets</strong></h2> 
-        <p>Market Value: ${{value}} per coin</p>
-        <p>{{current}} / {{all}} coins mined</p>
+        <p>Market Value: ${{value | number}} per coin</p>
+        <p>{{current | number}} / {{all | number}} coins mined</p>
         <p>%{{perc}} of total coins</p>
-        <p>Market Cap ${{market_cap}}</p>
+        <p>Market Cap ${{market_cap | number}}</p>
       </div>
       <div class="col-sm-4">
         <h2 class="m-b-xs"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> Bitcoin <strong>Difficulty</strong></h2>
-        <p>{{difficulty}}</p>
+        <p>{{difficulty | number}}</p>
         <p>Difficulty is a measure of how difficult it is to find a new block below a given target.</p>
       </div>
       <div class="col-sm-4">
-        <h2 class="m-b-xs"><span class="glyphicon glyphicon-signal" aria-hidden="true"></span> Next <strong>Difficulty</strong> <span class='small'>(estimate)</span></h2> <p>{{next_difficulty}}</p> <p>{{next_difficulty_perc}} change to current</p> <p>{{retarget_in}} blocks until difficulty changes</p>
+        <h2 class="m-b-xs"><span class="glyphicon glyphicon-signal" aria-hidden="true"></span> Next <strong>Difficulty</strong> <span class='small'>(estimate)</span></h2> <p>{{next_difficulty | number}}</p> <p>{{next_difficulty_perc | number}} change to current</p> <p>{{retarget_in | number}} blocks until difficulty changes</p>
       </div>
     </section>
   </section>
@@ -37,12 +37,12 @@
                 </thead>
                 <tbody ng-controller="HomepageCtrl as homepageController">
                   <tr ng-repeat="block in homepageController.blocks">
-                    <td><a ng-href="/#!/blocks/{{block.nb}}">{{block.nb}}</a></td>
-                    <td>{{block.time_utc}}</td>
-                    <td>{{block.nb_txs}}</td>
+                    <td><a ng-href="/#!/blocks/{{block.nb}}">{{block.nb | number}}</a></td>
+                    <td>{{block.time_utc | date:'medium'}}</td>
+                    <td>{{block.nb_txs | number}}</td>
                     <td>{{block.fee}}</td>
                     <td>{{block.size}}</td>
-                    <td>{{block.days_destroyed}}</td>
+                    <td>{{block.days_destroyed | number}}</td>
                   </tr>
                 </tbody>
             </table>
