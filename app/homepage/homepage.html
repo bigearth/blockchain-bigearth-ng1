@@ -40,8 +40,8 @@
                     <td><a ng-href="/#!/blocks/{{block.nb}}">{{block.nb | number}}</a></td>
                     <td>{{block.time_utc | date:'medium'}}</td>
                     <td>{{block.nb_txs | number}}</td>
-                    <td>{{block.fee}}</td>
-                    <td>{{block.size}}</td>
+                    <td>{{block.fee | number}}</td>
+                    <td>{{block.size | bytes}}</td>
                     <td>{{block.days_destroyed | number}}</td>
                   </tr>
                 </tbody>
