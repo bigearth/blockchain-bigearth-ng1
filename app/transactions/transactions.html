@@ -1,0 +1,81 @@
+<div class='hero'>
+  <section class='container'>
+    <section class="row m-b-md">
+      <div class="col-sm-12">
+        <h2><span class='glyphicon glyphicon-transfer' aria-hidden='true'></span> Bitcoin <strong>Transaction</strong></h2>
+        <ul class='breadcrumb'>
+          <li><a ng-href="/#!/">Home</a></li>
+          <li><a ng-href="/#!/blocks/{{block}}">Block {{block}}</a></li>
+          <li class="active">Transaction {{tx}}</li>
+        </ul>
+        <div ng-controller="TransactionsCtrl as transactionsController" class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <span class='glyphicon glyphicon-transfer' aria-hidden='true'></span> 
+              {{tx}}
+            </h3>
+          </div>
+          <div class="panel-body">
+            <section class="row m-b-md">
+              <div class="col-sm-6">
+                <h4>Input Address(es)</h4>
+                <section class="panel panel-default">
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <tr ng-repeat="vin in transactionsController.vins">
+                        <td><span class='glyphicon glyphicon-qrcode' aria-hidden='true'></span> <a ng-href="/#!/addresses/{{vin.address}}">{{vin.address}}</a></td>
+                        <td class='text-danger'>
+                          <span class='btc' title='{{vin.amount}}'><span class='glyphicon glyphicon-bitcoin' aria-hidden='true'></span> {{vin.amount}}</span>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </section>
+              </div>
+              <div class="col-sm-6">
+                <h4>Output Address(es)</h4>
+                <section class="panel panel-default">
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <tbody>
+                        <tr ng-repeat="vout in transactionsController.vouts">
+                          <td><span class='glyphicon glyphicon-qrcode' aria-hidden='true'></span> <a ng-href="/#!/addresses/{{vout.address}}">{{vout.address}}</a></td>
+                          <td class='text-danger'>
+                            <span class='btc' title='{{vout.amount}}'><span class='glyphicon glyphicon-bitcoin' aria-hidden='true'></span> {{vout.amount}}</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+              </div>
+            </section>
+          </div>
+          <div class="panel-footer">
+            <section class="row m-b-md">
+              <div class="col-sm-6">
+                <p><span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Days Destroyed: {{days_destroyed}}</p>
+              </div>
+              <div class="col-sm-6">
+                <p>
+                  <span class='btc'>
+                    <span class='glyphicon glyphicon-bitcoin' aria-hidden='true'></span>
+                    Fee: 
+                    <span title='{{fee}}'>{{fee}}</span>
+                  </span>
+                </p>
+                <p class='currency'>
+                  <span class='btc'>
+                    <span class='glyphicon glyphicon-bitcoin' aria-hidden='true'></span>
+                    Transaction Sum: 
+                    <span title='{{amount}}'>{{amount}}</span>
+                  </span>
+                </p>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+</div>

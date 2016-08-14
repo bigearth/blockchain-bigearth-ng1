@@ -1,38 +1,38 @@
-<div className='hero'>
-  <section className='container'>
-    <section className="row m-b-md">
-      <div className="col-sm-4">
-        <h2 className="m-b-xs"><span className="glyphicon glyphicon-bitcoin" aria-hidden="true"></span> Bitcoin <strong>Markets</strong></h2> 
+<div class='hero'>
+  <section class='container'>
+    <section class="row m-b-md">
+      <div class="col-sm-4">
+        <h2 class="m-b-xs"><span class="glyphicon glyphicon-bitcoin" aria-hidden="true"></span> Bitcoin <strong>Markets</strong></h2> 
         <p>Market Value: {{value}} per coin</p>
         <p>{{current}} / {{all}} coins mined</p>
         <p>%{{perc}} of total coins</p>
         <p>Market Cap ${{market_cap}}</p>
       </div>
-      <div className="col-sm-4">
-        <h2 className="m-b-xs"><span className="glyphicon glyphicon-link" aria-hidden="true"></span> Bitcoin <strong>Difficulty</strong></h2>
+      <div class="col-sm-4">
+        <h2 class="m-b-xs"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> Bitcoin <strong>Difficulty</strong></h2>
         <p>{{difficulty}}</p>
         <p>Difficulty is a measure of how difficult it is to find a new block below a given target.</p>
       </div>
-      <div className="col-sm-4">
-        <h2 className="m-b-xs"><span className="glyphicon glyphicon-signal" aria-hidden="true"></span> Next <strong>Difficulty</strong> <span className='small'>(estimate)</span></h2> <p>{{next_difficulty}}</p> <p>{{next_difficulty_perc}} change to current</p> <p>{{retarget_in}} blocks until difficulty changes</p>
+      <div class="col-sm-4">
+        <h2 class="m-b-xs"><span class="glyphicon glyphicon-signal" aria-hidden="true"></span> Next <strong>Difficulty</strong> <span class='small'>(estimate)</span></h2> <p>{{next_difficulty}}</p> <p>{{next_difficulty_perc}} change to current</p> <p>{{retarget_in}} blocks until difficulty changes</p>
       </div>
     </section>
   </section>
 </div>
-<div className='sub'>
-  <div className='container'>
-    <h3><span className="glyphicon glyphicon-th" aria-hidden="true"></span> Last 20 <strong>Bitcoin</strong> Blocks</h3>
-    <section className="panel panel-default">
-        <div className="table-responsive">
-            <table className="table table-striped">
+<div class='sub'>
+  <div class='container'>
+    <h3><span class="glyphicon glyphicon-th" aria-hidden="true"></span> Last 20 <strong>Bitcoin</strong> Blocks</h3>
+    <section class="panel panel-default">
+        <div class="table-responsive">
+            <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th><span className="glyphicon glyphicon-equalizer" aria-hidden="true"></span> Height</th>
-                        <th><span className="glyphicon glyphicon-object-align-vertical" aria-hidden="true"></span> Created</th>
-                        <th><span className="glyphicon glyphicon-transfer" aria-hidden="true"></span> Transactions</th>
-                        <th> <span className="btc glyphicon glyphicon-bitcoin" aria-hidden="true"></span> Fee </th>
-                        <th><span className="glyphicon glyphicon-scale" aria-hidden="true"></span> Size</th>
-                        <th><span className="glyphicon glyphicon-remove" aria-hidden="true"></span> Days Destroyed</th>
+                        <th><span class="glyphicon glyphicon-equalizer" aria-hidden="true"></span> Height</th>
+                        <th><span class="glyphicon glyphicon-object-align-vertical" aria-hidden="true"></span> Created</th>
+                        <th><span class="glyphicon glyphicon-transfer" aria-hidden="true"></span> Transactions</th>
+                        <th> <span class="btc glyphicon glyphicon-bitcoin" aria-hidden="true"></span> Fee </th>
+                        <th><span class="glyphicon glyphicon-scale" aria-hidden="true"></span> Size</th>
+                        <th><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Days Destroyed</th>
                     </tr>
                 </thead>
                 <tbody ng-controller="HomepageCtrl as homepageController">

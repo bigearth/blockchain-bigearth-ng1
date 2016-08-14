@@ -6,6 +6,7 @@ angular.module('blockchain', [
   'blockchain.homepage',
   'blockchain.blocks',
   'blockchain.addresses',
+  'blockchain.transactions',
   'blockchain.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {

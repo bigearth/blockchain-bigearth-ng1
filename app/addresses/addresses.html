@@ -1,34 +1,34 @@
 <div>
-  <div className="container">
-    <section className="row m-b-md">
-        <div className="col-sm-12">
-          <h2><span className='glyphicon glyphicon-qrcode' aria-hidden='true'></span> Bitcoin <strong>Address</strong></h2>
-          <ul className='breadcrumb'>
+  <div class="container">
+    <section class="row m-b-md">
+        <div class="col-sm-12">
+          <h2><span class='glyphicon glyphicon-qrcode' aria-hidden='true'></span> Bitcoin <strong>Address</strong></h2>
+          <ul class='breadcrumb'>
             <li><a ng-href="/#!/">Home</a></li>
-            <li className='active'>Address {{address}}</li>
+            <li class='active'>Address {{address}}</li>
           </ul>
         </div>
     </section>
-    <section className="row m-b-md">
-        <div className="col-sm-12">
-          <section className="panel panel-default">
-              <div className="table-responsive">
-                  <table className="table table-striped">
+    <section class="row m-b-md">
+        <div class="col-sm-12">
+          <section class="panel panel-default">
+              <div class="table-responsive">
+                  <table class="table table-striped">
                       <tbody>
                           <tr>
-                              <td><span className='glyphicon glyphicon-qrcode' aria-hidden='true'></span> Address</td>
+                              <td><span class='glyphicon glyphicon-qrcode' aria-hidden='true'></span> Address</td>
                               <td>{{address}}</td>
                           </tr>
                           <tr>
-                              <td><span className='glyphicon glyphicon-bitcoin' aria-hidden='true'></span> Balance</td>
+                              <td><span class='glyphicon glyphicon-bitcoin' aria-hidden='true'></span> Balance</td>
                               <td>{{balance}}</td>
                           </tr>
                           <tr>
-                              <td><span className='glyphicon glyphicon-bitcoin' aria-hidden='true'></span> Received</td>
+                              <td><span class='glyphicon glyphicon-bitcoin' aria-hidden='true'></span> Received</td>
                               <td>{{totalreceived}}</td>
                           </tr>
                           <tr>
-                              <td><span className='glyphicon glyphicon-transfer' aria-hidden='true'></span> Transactions</td>
+                              <td><span class='glyphicon glyphicon-transfer' aria-hidden='true'></span> Transactions</td>
                               <td>{{nb_txs}}</td>
                           </tr>
                       </tbody>
@@ -38,30 +38,30 @@
         </div>
     </section>
   </div>
-  <div className='sub'>
-    <div ng-controller="AddressesCtrl as addressesController" className='container'>
-      <section ng-repeat="tx in addressesController.txs" className="panel panel-default">
-        <div className="table-responsive">
-          <table className="table table-striped">
+  <div class='sub'>
+    <div ng-controller="AddressesCtrl as addressesController" class='container'>
+      <section ng-repeat="tx in addressesController.txs" class="panel panel-default">
+        <div class="table-responsive">
+          <table class="table table-striped">
             <tbody>
               <tr>
-                <td><span className='glyphicon glyphicon-transfer' aria-hidden='true'></span> Transaction</td>
-                <td><a ng-href="/#!//transactions/{{tx.tx}}">{{tx.tx}}</a></td>
+                <td><span class='glyphicon glyphicon-transfer' aria-hidden='true'></span> Transaction</td>
+                <td><a ng-href="/#!/transactions/{{tx.tx}}">{{tx.tx}}</a></td>
               </tr>
               <tr>
-                <td><span className='glyphicon glyphicon-calendar' aria-hidden='true'></span> Created</td>
+                <td><span class='glyphicon glyphicon-calendar' aria-hidden='true'></span> Created</td>
                 <td>{{tx.time_utc}}</td>
               </tr>
               <tr>
                 <td>
-                  <span className='btc'>
+                  <span class='btc'>
                     Amount
                   </span>
                 </td>
-                <td><span className='btc' title='{{tx.amount}'>{{tx.amount}}</span></td>
+                <td><span class='btc' title='{{tx.amount}'>{{tx.amount}}</span></td>
               </tr>
               <tr>
-                <td><span className='glyphicon glyphicon-equalizer' aria-hidden='true'></span> Confirmations</td>
+                <td><span class='glyphicon glyphicon-equalizer' aria-hidden='true'></span> Confirmations</td>
                 <td>{{tx.confirmations}}</td>
               </tr>
             </tbody>
