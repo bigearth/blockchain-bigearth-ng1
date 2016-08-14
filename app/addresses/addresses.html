@@ -21,15 +21,15 @@
                           </tr>
                           <tr>
                               <td><span class='glyphicon glyphicon-bitcoin' aria-hidden='true'></span> Balance</td>
-                              <td>{{balance}}</td>
+                              <td>{{balance | number}}</td>
                           </tr>
                           <tr>
                               <td><span class='glyphicon glyphicon-bitcoin' aria-hidden='true'></span> Received</td>
-                              <td>{{totalreceived}}</td>
+                              <td>{{totalreceived | number}}</td>
                           </tr>
                           <tr>
                               <td><span class='glyphicon glyphicon-transfer' aria-hidden='true'></span> Transactions</td>
-                              <td>{{nb_txs}}</td>
+                              <td>{{nb_txs | number}}</td>
                           </tr>
                       </tbody>
                   </table>
@@ -39,7 +39,7 @@
     </section>
   </div>
   <div class='sub'>
-    <div ng-controller="AddressesCtrl as addressesController" class='container'>
+    <div class='container'>
       <section ng-repeat="tx in addressesController.txs" class="panel panel-default">
         <div class="table-responsive">
           <table class="table table-striped">
@@ -50,7 +50,7 @@
               </tr>
               <tr>
                 <td><span class='glyphicon glyphicon-calendar' aria-hidden='true'></span> Created</td>
-                <td>{{tx.time_utc}}</td>
+                <td>{{tx.time_utc | date:'medium'}}</td>
               </tr>
               <tr>
                 <td>
@@ -58,11 +58,11 @@
                     Amount
                   </span>
                 </td>
-                <td><span class='btc' title='{{tx.amount}'>{{tx.amount}}</span></td>
+                <td><span class='btc' title='{{tx.amount | number}'>{{tx.amount | number}}</span></td>
               </tr>
               <tr>
                 <td><span class='glyphicon glyphicon-equalizer' aria-hidden='true'></span> Confirmations</td>
-                <td>{{tx.confirmations}}</td>
+                <td>{{tx.confirmations | number}}</td>
               </tr>
             </tbody>
           </table>

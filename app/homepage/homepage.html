@@ -35,7 +35,7 @@
                         <th><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Days Destroyed</th>
                     </tr>
                 </thead>
-                <tbody ng-controller="HomepageCtrl as homepageController">
+                <tbody>
                   <tr ng-repeat="block in homepageController.blocks">
                     <td><a ng-href="/#!/blocks/{{block.nb}}">{{block.nb | number}}</a></td>
                     <td>{{block.time_utc | date:'medium'}}</td>

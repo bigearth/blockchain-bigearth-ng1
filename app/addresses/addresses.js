@@ -5,7 +5,8 @@ angular.module('blockchain.addresses', ['ngRoute'])
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/addresses/:address', {
     templateUrl: 'addresses/addresses.html',
-    controller: 'AddressesCtrl'
+    controller: 'AddressesCtrl',
+    controllerAs: 'addressesController'
   });
 }])
 

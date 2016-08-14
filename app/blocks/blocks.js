@@ -5,7 +5,8 @@ angular.module('blockchain.blocks', ['ngRoute'])
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/blocks/:block', {
     templateUrl: 'blocks/blocks.html',
-    controller: 'BlocksCtrl'
+    controller: 'BlocksCtrl',
+    controllerAs: 'blocksController'
   });
 }])
 
@@ -43,26 +44,27 @@ angular.module('blockchain.blocks', ['ngRoute'])
     url: 'https://btc.blockr.io/api/v1/block/txs/' + $routeParams.block
   }).then(function successCallback(response) {
     var data = response.data.data;
-    angular.forEach(data.txs, function(tx) {
-      blocksController.txs.push({
-        tx: tx.tx,
-        fee: tx.fee,
-        days_destroyed: tx.days_destroyed
-      });
-      
-      angular.forEach(tx.trade.vins, function(vin) {
-        blocksController.vins.push({
-          address: vin.address,
-          amount: vin.amount
-        });
-      });
-      
-      angular.forEach(tx.trade.vouts, function(vout) {
-        blocksController.vouts.push({
-          address: vout.address,
-          amount: vout.amount
-        });
-      });
+    angular.forEach(data.txs, function(tx, index) {
+      // console.log(tx, index);
+    //   blocksController.txs.push({
+    //     tx: tx.tx,
+    //     fee: tx.fee,
+    //     days_destroyed: tx.days_destroyed
+    //   });
+    //   
+    //   angular.forEach(tx.trade.vins, function(vin) {
+    //     blocksController.vins.push({
+    //       address: vin.address,
+    //       amount: vin.amount
+    //     });
+    //   });
+    //   
+    //   angular.forEach(tx.trade.vouts, function(vout) {
+    //     blocksController.vouts.push({
+    //       address: vout.address,
+    //       amount: vout.amount
+    //     });
+    //   });
     });
   }, function errorCallback(response) {
     // called asynchronously if an error occurs

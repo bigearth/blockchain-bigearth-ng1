@@ -5,7 +5,8 @@ angular.module('blockchain.transactions', ['ngRoute'])
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/transactions/:transaction', {
     templateUrl: 'transactions/transactions.html',
-    controller: 'TransactionsCtrl'
+    controller: 'TransactionsCtrl',
+    controllerAs: 'transactionsController'
   });
 }])
 
@@ -19,6 +20,7 @@ angular.module('blockchain.transactions', ['ngRoute'])
   }).then(function successCallback(response) {
     var data = response.data.data;
     $scope.block = data.block;
+    $scope.tx = data.tx;
     $scope.days_destroyed = data.days_destroyed;
     $scope.fee = data.fee;
     $scope.amount = data.amount;

@@ -7,7 +7,7 @@
             <h2><span class='glyphicon glyphicon-th-large' aria-hidden='true'></span> Bitcoin <strong>Block</strong></h2>
             <ul class='breadcrumb'>
               <li><a ng-href="/#!/">Home</a></li>
-              <li class='active'>Block {{nb}}</li>
+              <li class='active'>Block {{nb | number}}</li>
             </ul>
             <section class='panel panel-default'>
               <div class='table-responsive'>
@@ -15,27 +15,27 @@
                   <tbody>
                     <tr>
                       <th><span class='glyphicon glyphicon-equalizer' aria-hidden='true'></span> Height</th>
-                      <td>{{nb}}</td>
+                      <td>{{nb | number}}</td>
                     </tr>
                     <tr>
                       <th><span class='glyphicon glyphicon-calendar' aria-hidden='true'></span> Created</th>
-                      <td>{{time_utc}}</td>
+                      <td>{{time_utc | date:'medium'}}</td>
                     </tr>
                     <tr>
                       <th class='btc'><span class='glyphicon glyphicon-bitcoin' aria-hidden='true'></span> Trades Sum</th>
-                      <td>{{vout_sum}}</td>
+                      <td>{{vout_sum | number}}</td>
                     </tr>
                     <tr>
                       <th><span class='glyphicon glyphicon-transfer' aria-hidden='true'></span> Transactions</th>
-                      <td>{{nb_txs}}</td>
+                      <td>{{nb_txs | number}}</td>
                     </tr>
                     <tr>
                       <th><span class='glyphicon glyphicon-link' aria-hidden='true'></span> Difficulty</th>
-                      <td>{{difficulty}}</td>
+                      <td>{{difficulty | number}}</td>
                     </tr>
                     <tr>
                       <th class='btc'><span class='glyphicon glyphicon-bitcoin' aria-hidden='true'></span> Fee</th>
-                      <td>{{fee}}</td>
+                      <td>{{fee | number}}</td>
                     </tr>
                     <tr>
                       <th><span class='glyphicon glyphicon-random' aria-hidden='true'></span> Hash</th>
@@ -43,11 +43,11 @@
                     </tr>
                     <tr>
                       <th><span class='glyphicon glyphicon-align-justify' aria-hidden='true'></span> Version</th>
-                      <td>{{version}}</td>
+                      <td>{{version | number}}</td>
                     </tr>
                     <tr>
                       <th><span class='glyphicon glyphicon-equalizer' aria-hidden='true'></span> Confirmations</th>
-                      <td>{{confirmations}}</td>
+                      <td>{{confirmations | number}}</td>
                     </tr>
                     <tr>
                       <th><span class='glyphicon glyphicon-tree-conifer' aria-hidden='true'></span> Merkle Root</th>
@@ -63,11 +63,11 @@
                     </tr>
                     <tr>
                       <th><span class='glyphicon glyphicon-scale' aria-hidden='true'></span> Size</th>
-                      <td>{{size}}</td>
+                      <td>{{size | bytes}}</td>
                     </tr>
                     <tr>
                       <th><span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Days Destroyed</th>
-                      <td>{{days_destroyed}}</td>
+                      <td>{{days_destroyed | number}}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -82,8 +82,8 @@
     <section class='container'>
       <section class="row m-b-md">
         <div class="col-sm-12">
-          <h3><span class="glyphicon glyphicon-transfer" aria-hidden="true"></span> Transactions (for <strong>Block</strong> {{nb}})</h3>
-          <div ng-controller="BlocksCtrl as blocksController">
+          <h3><span class="glyphicon glyphicon-transfer" aria-hidden="true"></span> Transactions (for <strong>Block</strong> {{nb | number}})</h3>
+          <div>
             <div ng-repeat="tx in blocksController.txs" class="panel panel-default">
               <div class="panel-heading">
                 <h3 class="panel-title">
@@ -102,7 +102,7 @@
                             <tr ng-repeat="vin in blocksController.vins">
                               <td><span class='glyphicon glyphicon-qrcode' aria-hidden='true'></span> <a ng-href="/#!/addresses/{{vin.address}}">{{vin.address}}</a></td>
                               <td class='text-danger'>
-                                <span class='btc' title='{{vin.amount}}'><span class='glyphicon glyphicon-bitcoin' aria-hidden='true'></span> {{vin.amount}}</span>
+                                <span class='btc' title='{{vin.amount}}'><span class='glyphicon glyphicon-bitcoin' aria-hidden='true'></span> {{vin.amount | number}}</span>
                               </td>
                             </tr>
                           </tbody>
@@ -119,7 +119,7 @@
                             <tr ng-repeat="vout in blocksController.vouts">
                               <td><span class='glyphicon glyphicon-qrcode' aria-hidden='true'></span> <a ng-href="/#!/addresses/{{vout.address}}">{{vout.address}}</a></td>
                               <td class='text-danger'>
-                                <span class='btc' title='{{vout.amount}}'><span class='glyphicon glyphicon-bitcoin' aria-hidden='true'></span> {{vout.amount}}</span>
+                                <span class='btc' title='{{vout.amount}}'><span class='glyphicon glyphicon-bitcoin' aria-hidden='true'></span> {{vout.amount | number}}</span>
                               </td>
                             </tr>
                           </tbody>
@@ -132,21 +132,21 @@
               <div class="panel-footer">
                 <section class="row m-b-md">
                   <div class="col-sm-6">
-                    <p><span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Days Destroyed: {{tx.days_destroyed}}</p>
+                    <p><span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Days Destroyed: {{tx.days_destroyed | number}}</p>
                   </div>
                   <div class="col-sm-6">
                     <p>
                       <span class='btc'>
                         <span class='glyphicon glyphicon-bitcoin' aria-hidden='true'></span>
                         Fee: 
-                        <span title='{{tx.fee}'>{{tx.fee}}</span>
+                        <span title='{{tx.fee}'>{{tx.fee | number}}</span>
                       </span>
                     </p>
                     <p class='currency'>
                       <span class='btc'>
                         <span class='glyphicon glyphicon-bitcoin' aria-hidden='true'></span>
                         Transaction Sum: 
-                        <span title='{{tx.amount}'>{{tx.vout_sum}}</span>
+                        <span title='{{tx.amount}'>{{tx.vout_sum | number}}</span>
                       </span>
                     </p>
                   </div>
