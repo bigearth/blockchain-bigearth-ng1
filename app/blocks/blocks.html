@@ -55,11 +55,11 @@
                     </tr>
                     <tr>
                       <th><span class='glyphicon glyphicon-menu-right' aria-hidden='true'></span> Next Block Hash</th>
-                      <td><Link to={`/blocks/${{next_block_hash}}`}}>{{next_block_hash}}</Link></td>
+                      <td><a ng-href="/#!/blocks/{{next_block_hash}}">{{next_block_hash}}</a></Link></td>
                     </tr>
                     <tr>
                       <th><span class='glyphicon glyphicon-menu-left' aria-hidden='true'></span> Prev Block Hash</th>
-                      <td><Link to={`/blocks/${{next_block_hash}}`}}>{{prev_block_hash}}</Link></td>
+                      <td><a ng-href="/#!/blocks/{{prev_block_hash}}">{{prev_block_hash}}</a></Link></td>
                     </tr>
                     <tr>
                       <th><span class='glyphicon glyphicon-scale' aria-hidden='true'></span> Size</th>
